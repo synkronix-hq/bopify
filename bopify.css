@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +19,9 @@ body {
   color: #fff;
 }
 .neon-text {
-  font-size: 3rem; /* Adjust size as needed */
+  font-size: 3rem; 
   font-weight: bold;
-  color: #00ffff; /* Neon blue color */
+  color: #00ffff; 
   text-shadow: 
     0 0 30px #00ffff;
 }
@@ -257,7 +257,7 @@ input::placeholder {
   justify-content: center;
   gap: 0.5rem;
   transition: background 0.3s ease;
-  width: 100%; /* Ensure it stretches across the form */
+  width: 100%; 
 }
 
 .login-button:hover {
