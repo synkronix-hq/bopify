@@ -1,0 +1,215 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --neon-purple: #9d00ff;
+  --dark-bg: #0a0a0f;
+  --card-bg: rgba(20, 20, 30, 0.6);
+  --text-color: #ffffff;
+  --secondary-text: rgba(255, 255, 255, 0.7);
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  background-image: url("ChatGPT Image May 11, 2025, 12_56_09 AM.png"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px var(--neon-blue),
+    0 0 30px var(--neon-blue);
+}
+
+.highlight {
+  color: var(--neon-blue);
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--secondary-text);
+  letter-spacing: 1px;
+}
+
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+
+.player-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+
+.album-art {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.player-card:hover .album-art img {
+  transform: scale(1.05);
+}
+
+.neon-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: 15px 15px 0 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.player-card:nth-child(odd):hover .neon-border {
+  box-shadow: 0 0 10px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+
+.player-card:nth-child(even):hover .neon-border {
+  box-shadow: 0 0 10px var(--neon-blue), inset 0 0 10px var(--neon-blue);
+  border-color: var(--neon-blue);
+}
+
+
+.player-info {
+  padding: 1.5rem;
+}
+
+.song-title {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artist {
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+
+.audio-player {
+  width: 100%;
+}
+
+
+audio {
+  width: 100%;
+  height: 40px;
+  filter: hue-rotate(180deg);
+  opacity: 0.9;
+  border-radius: 30px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(30, 30, 40, 0.8);
+  border-radius: 30px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display {
+  color: white;
+}
+
+audio::-webkit-media-controls-timeline {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 4px;
+}
+
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  .players-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
